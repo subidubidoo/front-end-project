@@ -1,0 +1,100 @@
+.brand {
+    font-family: 'Playfair Display', cursive;
+    font-size: 1.5rem;
+    color: #165823;
+    font-weight: bold;
+    margin-left: 2rem;
+    text-decoration: none;
+}
+
+.cat-bar {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 2.5rem 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.cat-btn {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border: 1px solid #165823;
+    background: transparent;
+    color: #165823;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cat-btn:hover {
+    background: #165823;
+    color: #fff;
+}
+
+.cat-btn.active {
+    background: #165823;
+    color: #fff;
+}
+
+.card {
+    border: 1px solid #FF788D;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px #ffdadad0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    
+
+}
+.custom-img{
+    height: 400px;
+    
+    
+   
+}
+
+
+#productContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    
+}
+
+#cartbtn{
+    background-color: #165823;
+    color: rgb(220, 103, 103);
+    border: 1px solid #FF788D;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    position: relative;
+    bottom: 10px;
+    left: 10px;
+}
+
+.card-btns{
+    border:1px solid #165823;
+    
+    bottom: 10px;
+}
+
+.foot{
+    background-color:#ffdadad0 ;
+    font-family: 'Montserrat';
+    color: #165823;
+    height: 48vh;
+}
