@@ -1,6 +1,9 @@
 alert("JavaScript connected");
+
 const nameRegex = /^[A-Za-z\s]{2,30}$/;
+
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
 
 function showError(input, errorElement, message) {
@@ -16,7 +19,9 @@ function clearError(input, errorElement) {
 const registerForm = document.getElementById("registerForm");
 
 if (registerForm) {
+
     registerForm.addEventListener("submit", function (event) {
+
         event.preventDefault();
 
         const nameInput = document.getElementById("name");
@@ -42,46 +47,86 @@ if (registerForm) {
         let isValid = true;
 
         if (name === "") {
-            showError(nameInput, nameError, "Name is required.");
+
+            showError(
+                nameInput,
+                nameError,
+                "Name is required."
+            );
+
             isValid = false;
+
         } else if (!nameRegex.test(name)) {
-            showError(nameInput, nameError, "Enter a valid name.");
+
+            showError(
+                nameInput,
+                nameError,
+                "Enter a valid name."
+            );
+
             isValid = false;
         }
 
         if (email === "") {
-            showError(emailInput, emailError, "Email is required.");
+
+            showError(
+                emailInput,
+                emailError,
+                "Email is required."
+            );
+
             isValid = false;
+
         } else if (!emailRegex.test(email)) {
-            showError(emailInput, emailError, "Enter a valid email address.");
+
+            showError(
+                emailInput,
+                emailError,
+                "Enter a valid email address."
+            );
+
             isValid = false;
         }
 
         if (password === "") {
-            showError(passwordInput, passwordError, "Password is required.");
+
+            showError(
+                passwordInput,
+                passwordError,
+                "Password is required."
+            );
+
             isValid = false;
+
         } else if (!passwordRegex.test(password)) {
+
             showError(
                 passwordInput,
                 passwordError,
                 "Password must be at least 8 characters and include uppercase, lowercase and a number."
             );
+
             isValid = false;
         }
 
         if (confirmPassword === "") {
+
             showError(
                 confirmPasswordInput,
                 confirmPasswordError,
                 "Please confirm your password."
             );
+
             isValid = false;
+
         } else if (password !== confirmPassword) {
+
             showError(
                 confirmPasswordInput,
                 confirmPasswordError,
                 "Passwords do not match."
             );
+
             isValid = false;
         }
 
@@ -96,11 +141,13 @@ if (registerForm) {
         });
 
         if (userExists) {
+
             showError(
                 emailInput,
                 emailError,
                 "This email is already registered."
             );
+
             return;
         }
 
@@ -113,7 +160,10 @@ if (registerForm) {
 
         users.push(newUser);
 
-        localStorage.setItem("users", JSON.stringify(users));
+        localStorage.setItem(
+            "users",
+            JSON.stringify(users)
+        );
 
         alert("Account created successfully!");
 
@@ -124,7 +174,9 @@ if (registerForm) {
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
+
     loginForm.addEventListener("submit", function (event) {
+
         event.preventDefault();
 
         const emailInput = document.getElementById("loginEmail");
@@ -142,15 +194,34 @@ if (loginForm) {
         let isValid = true;
 
         if (email === "") {
-            showError(emailInput, emailError, "Email is required.");
+
+            showError(
+                emailInput,
+                emailError,
+                "Email is required."
+            );
+
             isValid = false;
+
         } else if (!emailRegex.test(email)) {
-            showError(emailInput, emailError, "Enter a valid email address.");
+
+            showError(
+                emailInput,
+                emailError,
+                "Enter a valid email address."
+            );
+
             isValid = false;
         }
 
         if (password === "") {
-            showError(passwordInput, passwordError, "Password is required.");
+
+            showError(
+                passwordInput,
+                passwordError,
+                "Password is required."
+            );
+
             isValid = false;
         }
 
@@ -165,11 +236,13 @@ if (loginForm) {
         });
 
         if (!currentUser) {
+
             showError(
                 passwordInput,
                 passwordError,
                 "Incorrect email or password."
             );
+
             return;
         }
 
@@ -184,12 +257,21 @@ if (loginForm) {
             JSON.stringify(loggedInUser)
         );
 
+        localStorage.setItem(
+            "isLoggedIn",
+            "true"
+        );
+
         alert("Signed in successfully!");
 
-        window.location.href = "index.html";
+        window.location.href = "home.html";
     });
 }
+
 function logout() {
+
     localStorage.removeItem("currentUser");
+    localStorage.removeItem("isLoggedIn");
+
     window.location.href = "login.html";
 }

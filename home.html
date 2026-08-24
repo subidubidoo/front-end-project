@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home | Fashion Store</title>
+
+    <link rel="stylesheet" href="home.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+        .nav-search {
+            width: 220px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffffff;
+            border: 1px solid #d18489;
+            border-radius: 25px;
+            padding: 0 15px;
+        }
+
+        .nav-search i {
+            color: #d18489;
+            font-size: 15px;
+        }
+
+        .nav-search input {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: #5a3838;
+            font-size: 14px;
+        }
+
+        .nav-search input::placeholder {
+            color: #9b7b7b;
+        }
+
+        .dark-mode .nav-search {
+            background-color: #4b3030;
+            border-color: #d18489;
+        }
+
+        .dark-mode .nav-search input {
+            color: white;
+        }
+
+        .dark-mode .nav-search input::placeholder {
+            color: #e8cccc;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <a href="./home.html" class="logo">
+        FASHION STORE
+        <span>Discover your style</span>
+    </a>
+
+    <div class="nav-links">
+
+        <a href="./home.html">Home</a>
+
+        <a href="./productsPage.html">Products</a>
+
+        <a href="./wishlist.html">
+            <i class="fa-regular fa-heart"></i>
+            Wishlist
+        </a>
+
+        <div class="nav-search">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="navSearch"
+                placeholder="Search products..."
+            >
+
+        </div>
+
+        <a href="./login.html">Sign In</a>
+
+        <a href="./register.html" class="signup">
+            Sign Up
+        </a>
+
+        <button id="themeToggle" class="theme-toggle">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+    </div>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="small-title">
+            NEW COLLECTION
+        </p>
+
+        <h1>
+            Elegance That<br>
+            Defines You
+        </h1>
+
+        <p class="hero-text">
+            Discover timeless fashion designed to make every moment feel special.
+        </p>
+
+        <a href="./productsPage.html" class="shop-btn">
+            Shop Collection
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="categories">
+
+    <div class="section-title">
+
+        <p>OUR FAVORITES</p>
+
+        <h2>Best Sellers</h2>
+
+        <span>
+            Discover our most loved pieces
+        </span>
+
+    </div>
+
+
+    <div class="category-container">
+
+        <div class="product-card">
+
+            <img src="images/dresses/dress3.jpg" alt="Elegant Dress">
+
+            <div class="product-info">
+
+                <h3>Elegant Dress</h3>
+
+                <p class="price">
+                    70.99 JD
+                </p>
+
+                <a href="./productsPage.html">
+                    Shop Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <img src="images/dresses/download (21).jpg" alt="Classic Dress">
+
+            <div class="product-info">
+
+                <h3>Classic Dress</h3>
+
+                <p class="price">
+                    88.99 JD
+                </p>
+
+                <a href="./productsPage.html">
+                    Shop Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <img src="images/dresses/download (22).jpg" alt="Feminine Dress">
+
+            <div class="product-info">
+
+                <h3>Feminine Dress</h3>
+
+                <p class="price">
+                    90.99 JD
+                </p>
+
+                <a href="./productsPage.html">
+                    Shop Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <img src="images/jewelery/download (26).jpg" alt="Delicate Bracelet">
+
+            <div class="product-info">
+
+                <h3>Delicate Bracelet</h3>
+
+                <p class="price">
+                    19.99 JD
+                </p>
+
+                <a href="./productsPage.html">
+                    Shop Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <img src="images/jewelery/download (27).jpg"
+                 alt="Elegant Floral Bangles">
+
+            <div class="product-info">
+
+                <h3>Elegant Floral Bangles</h3>
+
+                <p class="price">
+                    15.99 JD
+                </p>
+
+                <a href="./productsPage.html">
+                    Shop Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <img src="images/jewelery/Neck.jpg"
+                 alt="Delicate Necklace">
+
+            <div class="product-info">
+
+                <h3>Delicate Necklace</h3>
+
+                <p class="price">
+                    19.99 JD
+                </p>
+
+                <a href="./productsPage.html">
+                    Shop Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="center-products">
+
+        <div class="product-card">
+
+            <img src="images/shoes/hee1.jpg"
+                 alt="Elegant Heels">
+
+            <div class="product-info">
+
+                <h3>Elegant Heels</h3>
+
+                <p class="price">
+                    29.99 JD
+                </p>
+
+                <a href="./productsPage.html">
+                    Shop Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <img src="images/shoes/hee2.jpg"
+                 alt="Soft Heel">
+
+            <div class="product-info">
+
+                <h3>Soft Heel</h3>
+
+                <p class="price">
+                    34.99 JD
+                </p>
+
+                <a href="./productsPage.html">
+                    Shop Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-card center-last-product">
+
+            <img src="images/pants/jenz.jpg"
+                 alt="Classic Jeans">
+
+            <div class="product-info">
+
+                <h3>Classic Jeans</h3>
+
+                <p class="price">
+                    39.99 JD
+                </p>
+
+                <a href="./productsPage.html">
+                    Shop Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="collection">
+
+    <div class="collection-text">
+
+        <p class="small-title">
+            OUR STYLE
+        </p>
+
+        <h2>
+            Fashion Made<br>
+            For Every Moment
+        </h2>
+
+        <p>
+            Discover elegant pieces designed for every occasion.
+            Explore our collection and find the perfect style
+            that reflects your personality.
+        </p>
+
+        <a href="./productsPage.html" class="dark-btn">
+            Discover More
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="features">
+
+    <div class="feature">
+
+        <i class="fa-solid fa-truck"></i>
+
+        <div>
+            <h3>Fast Delivery</h3>
+            <p>Quick delivery to your doorstep.</p>
+        </div>
+
+    </div>
+
+
+    <div class="feature">
+
+        <i class="fa-regular fa-heart"></i>
+
+        <div>
+            <h3>Premium Quality</h3>
+            <p>Carefully selected fashion pieces.</p>
+        </div>
+
+    </div>
+
+
+    <div class="feature">
+
+        <i class="fa-solid fa-lock"></i>
+
+        <div>
+            <h3>Secure Shopping</h3>
+            <p>Your shopping experience is protected.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer class="store-footer">
+
+    <div class="footer-content">
+
+        <div class="footer-column">
+
+            <h3>SHOP</h3>
+
+            <a href="./productsPage.html">New Arrivals</a>
+            <a href="./productsPage.html">Best Sellers</a>
+            <a href="./productsPage.html">Sale</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>HELP</h3>
+
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+            <a href="#">Size Guide</a>
+
+        </div>
+
+
+        <div class="footer-column why-shop">
+
+            <h3>WHY SHOP WITH US</h3>
+
+            <p>
+                <i class="fa-solid fa-truck"></i>
+                Free shipping over 50 JD
+            </p>
+
+            <p>
+                <i class="fa-solid fa-rotate-left"></i>
+                30-day returns
+            </p>
+
+            <p>
+                <i class="fa-solid fa-shield-halved"></i>
+                Secure checkout
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Fashion Store. All Rights Reserved.
+        </p>
+
+        <div class="payment-icons">
+
+            <i class="fa-brands fa-cc-visa"></i>
+            <i class="fa-brands fa-cc-paypal"></i>
+            <i class="fa-brands fa-cc-mastercard"></i>
+            <i class="fa-brands fa-google-pay"></i>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+    const themeToggle =
+        document.getElementById("themeToggle");
+
+    const savedTheme =
+        localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark-mode");
+
+        themeToggle.innerHTML =
+            '<i class="fa-solid fa-sun"></i>';
+
+    }
+
+    themeToggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+
+            localStorage.setItem("theme", "dark");
+
+            themeToggle.innerHTML =
+                '<i class="fa-solid fa-sun"></i>';
+
+        } else {
+
+            localStorage.setItem("theme", "light");
+
+            themeToggle.innerHTML =
+                '<i class="fa-solid fa-moon"></i>';
+
+        }
+
+    });
+
+
+    const navSearch = document.getElementById("navSearch");
+
+    navSearch.addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+
+            const searchValue = navSearch.value.trim();
+
+            if (searchValue !== "") {
+
+                localStorage.setItem("productSearch", searchValue);
+
+                window.location.href = "./productsPage.html";
+
+            }
+
+        }
+
+    });
+
+</script>
+
+</body>
+
+</html>
