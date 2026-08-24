@@ -10,8 +10,8 @@ const products =[
     name:"Girl T-shirt",
     price:25,
     category:"T-shirts",
-    image:"images\\T-shirts\\design mens oversized shirt available now! DM me on Instagram anirbaan_xo for link.jpg",
-    description:"Sad girl T-shirt for women"},
+    image:"images\\T-shirts\\download (21).jpg",
+    description:"girls T-shirtwith a cute pink bow for women"},
 
     {id:3,
     name:"Slit dress",
@@ -87,6 +87,7 @@ const products =[
 
  ];
 
+
  function displayProducts(productsToDisplay) {
     const productContainer = document.getElementById("productContainer");
     productContainer.innerHTML = ""; // Clear previous products
@@ -96,16 +97,20 @@ const products =[
         const productCard = document.createElement("div");
         productCard.classList.add("card");
         productCard.style.width = "18rem";
+        productCard.dataset.id = product.id;
         productCard.innerHTML = `
-               <img src="${product.image}" class="card-img-top custom-img" style="height: 400px; object-fit:;" alt="${product.name}">
+               <img src="${product.image}" class="card-img-top custom-img" style="height: 400px; object-fit:cover;" alt="${product.name}">
             <div class="card-body h-100">
                 <h5 class="card-title">${product.name}</h5>
                 <p class="card-text">${product.description}</p>
                 <p class="card-price">$${product.price.toFixed(2)}</p>
                 <div class="card-btns">
-                <button type="button" class="btn btn-sm butt" id="catbtn">Add to Cart</button>
-                <button type="button" class="btn btn-sm butt">View Details</button>
-                </div
+                <button type="button" class="btn btn-sm cardbtn1" style="background-color: #165823; font-family:'Montserrat','Playfair Display';color: #ffdada;font-weight:470;font-size: 0.8rem;">
+                <i class="bi bi-bag-heart"></i>
+                  Add to Cart</button>
+                <button type="button" class="btn btn-sm cardbtn2" style="background-color: #165823; font-family:'Montserrat','Playfair Display';color: #ffdada;font-weight:470;font-size: 0.8rem;">
+                <i class="bi bi-balloon-heart"></i> View Details</button>
+                </div>
                 </div>
 
              `;
@@ -131,5 +136,26 @@ searchInput.addEventListener("keyup", e => {
     const searchedProducts = products.filter(product => product.name.toLowerCase().includes(searchTerm));
     displayProducts(searchedProducts);
 });
+
+
+productContainer.addEventListener("click", (e) => {
+    if (e.target.closest(".cardbtn1")) {
+        const card = e.target.closest(".card");
+        const productId = card.dataset.id;
+        addToCart(productId);
+    }
+});
+
+function addToCart(productId) {
+    const product = products.find(p => p.id == productId);
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+
+
+
+
 
         

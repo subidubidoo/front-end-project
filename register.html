@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up | Fashion Store</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main class="auth-page">
+
+        <div class="background-image"></div>
+
+        <section class="auth-card">
+
+            <div class="brand">
+                <h1>FASHION STORE</h1>
+                <p>Discover your style</p>
+            </div>
+
+            <div class="form-header">
+                <h2>Create Account</h2>
+                <p>Join Fashion Store today</p>
+            </div>
+
+            <form id="registerForm">
+
+                <div class="input-group">
+                    <label for="name">Name</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                        autocomplete="name"
+                    >
+
+                    <span
+                        class="error-message"
+                        id="nameError">
+                    </span>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                    >
+
+                    <span
+                        class="error-message"
+                        id="emailError">
+                    </span>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="new-password"
+                    >
+
+                    <span
+                        class="error-message"
+                        id="passwordError">
+                    </span>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm Password</label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm your password"
+                        autocomplete="new-password"
+                    >
+
+                    <span
+                        class="error-message"
+                        id="confirmPasswordError">
+                    </span>
+                </div>
+
+                <button
+                    type="submit"
+                    class="auth-button">
+                    Sign Up
+                </button>
+
+            </form>
+
+            <p class="switch-page">
+                Already have an account?
+                <a href="login.html">Sign In</a>
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="js/auth.js"></script>
+
+</body>
+
+</html>
