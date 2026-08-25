@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Cart</title>
+<link rel="stylesheet" href="css/cartPage.css">
+<link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+
+
+    <nav class="navbar">
+
+    <a href="./home.html" class="logo">
+        FASHION STORE
+        <span>Discover your style</span>
+    </a>
+
+    <div class="nav-links">
+
+        <a href="./home.html">Home</a>
+
+        <a href="./productsPage.html">Products</a>
+
+        <a href="./wishlist.html">
+            <i class="fa-regular fa-heart"></i>
+            Wishlist
+        </a>
+
+         <div id="cart-icon-div">
+          <i class="bi bi-bag-heart" id="carticon"></i>
+          <span class="cart-item-count"></span>
+        </div>
+
+        <div class="nav-search">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="navSearch"
+                placeholder="Search products..."
+            >
+
+        </div>
+
+        <a href="./login.html">Sign In</a>
+
+        <a href="./register.html" class="signup">
+            Sign Up
+        </a>
+
+        <button id="themeToggle" class="theme-toggle">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+    </div>
+
+</nav>
+
+    
+
+<div class="cart-page">
+  <h1>My Cart</h1>
+  <div class="cart">
+    <h2 class="cart-title"> Your cart</h2>
+    <div class="cart-content">
+      <!-- <div class="cart-box">
+        <img src="images\dresses\download (22).jpg" alt="dress">
+        <div class="cart-detail">
+          <h2 class="cart-product-title"> pretty dress</h2>
+          <span class="cart-price">100 JOD</span>
+          <div class="cart-quantity">
+            <button id="decrement">-</button>
+            <span class="number">1</span>
+            <button id="increment">+</button>  
+          </div>
+        </div>
+          <i class="bi bi-trash cart-remove"></i>
+      </div> -->
+    </div>
+  </div>
+
+
+  <div id="cartContainer" class="cart-container"></div>
+
+  <div class="cart-footer">
+    <h2>Total: <span id="totalPrice">0</span> JOD</h2>
+    <button id="clearCartBtn">Clear Cart</button>
+  </div>
+</div>
+<script src="js/productsPage.js"></script>
+<script src="js/cartPage.js"></script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #f6eaea;
+  font-family:'Montserrat', sans-serif;
+  background: #fae7e7;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,9 +19,10 @@ body {
   width: 100%;
   min-height: 550px;
   background: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid #d99197;
   border-radius: 8px;
   overflow: hidden;
+  position: relative;
 }
 
 .product-image {
@@ -31,6 +32,15 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 400px;
+}
+
+#closing{
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  font-size: 1.4rem;
+  color: #c75e67;
+  cursor: pointer;
 }
 
 .product-image img {
@@ -47,14 +57,16 @@ body {
 }
 
 .product-info h1 {
+  font-family: 'Playfail Display';
   margin: 0;
-  font-size: 24px;
+  font-size: 32px;
+  color: #563838;
 }
 
 .price {
   font-size: 20px;
   font-weight: bold;
-  color: #333;
+  color: #d47f86;
 }
 
 .description {
@@ -84,7 +96,7 @@ label {
 }
 
 .color-option.selected {
-  border-color: #333;
+  border-color: #c15d65;
 }
 
 .sizes {
@@ -94,22 +106,23 @@ label {
 
 .size-option {
   padding: 8px 14px;
-  border: 1px solid #ccc;
+  border: 1px solid #d47f86;
   background: #fff;
   cursor: pointer;
   border-radius: 4px;
+  color: #d47f86;
 }
 
 .size-option.selected {
-  background: #333;
+  background: #d47f86;
   color: #fff;
-  border-color: #333;
+  border-color: #d47f86;
 }
 
 .add-to-cart {
   margin-top: 10px;
   padding: 12px;
-  background: #333;
+  background: #563838;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -118,7 +131,7 @@ label {
 }
 
 .add-to-cart:hover {
-  background: #555;
+  background: #785656;
 }
 
 @media (max-width: 600px) {

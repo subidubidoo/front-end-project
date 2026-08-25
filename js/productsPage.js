@@ -81,10 +81,7 @@ const products =[
     price:60,
     category:"Shoes",
     image:"images\\shoes\\Lace Ankle Socks.jpg",
-    description:"pink lolita fashion inspires mary janes"},
-    
-
-
+    description:"pink lolita fashion inspires mary janes"}
  ];
 
 
@@ -105,16 +102,17 @@ const products =[
                 <p class="card-text">${product.description}</p>
                 <p class="card-price">${product.price.toFixed(2)} JOD</p>
                 <div class="card-btns">
-                <button type="button" class="btn btn-sm cardbtn" style="background-color: #563838; font-family:'Montserrat','Playfair Display';color: #fffafa;font-weight:470;font-size: 0.8rem;position:absolute; bottom:15px; right:10px;">
+                <button type="button" class="btn btn-sm addcart" style="background-color: #563838; font-family:'Montserrat','Playfair Display';color: #fffafa;font-weight:470;font-size: 0.8rem;position:absolute; bottom:15px; right:10px;">
                 <i class="bi bi-bag-heart"></i>
                   Add to Cart</button>
-                <button type="button" class="btn btn-sm cardbtn" style="background-color: #563838; font-family:'Montserrat','Playfair Display';color: #fffafa;font-weight:470;font-size: 0.8rem;position:absolute; bottom:15px; right:120px;">
+                <button type="button" class="btn btn-sm detailsbtn" style="background-color: #563838; font-family:'Montserrat','Playfair Display';color: #fffafa;font-weight:470;font-size: 0.8rem;position:absolute; bottom:15px; right:120px;">
                 <i class="bi bi-balloon-heart"></i> Details</button>
                 </div>
                 </div>
 
              `;
         productContainer.appendChild(productCard);
+        
     });
 }
 displayProducts(products);
@@ -137,25 +135,181 @@ searchInput.addEventListener("keyup", e => {
     displayProducts(searchedProducts);
 });
 
+const cartIcon =document.querySelector('#carticon');
+    const cart1 =document.querySelector('.cart');
+    const cartClose =document.querySelector('#closing');
+
+    cartIcon.addEventListener("click",() => cart1.classList.add("active"));
+    cartClose.addEventListener("click",() => cart1.classList.remove("active"));
+
+
+
+// function displayCart(cartProducts) {
+//     const cartContainer = document.getElementById("cartContainer");
+//     cartContainer.innerHTML = "";
+
+//     cartProducts.forEach(product => {
+//         const productCard = document.createElement("div");
+//         productCard.classList.add("card");
+//         productCard.style.width = "18rem";
+//         productCard.dataset.id = product.id;
+//         productCard.innerHTML = `
+//                <img src="${product.image}" class="card-img-top custom-img" style="height: 300px; object-fit:cover;" alt="${product.name}">
+//             <div class="card-body ">
+//                 <h5 class="card-title">${product.name}</h5>
+//                 <p class="card-text">${product.description}</p>
+//                 <p class="card-price">${product.price.toFixed(2)} JOD</p>
+//             </div>
+//              `;
+//         cartContainer.appendChild(productCard);
+//     });
+// }
+
+// let cart = JSON.parse(localStorage.getItem("cart")) || [];
+// console.log(JSON.parse(localStorage.getItem("cart")));
+
+// displayCart(cart);
 
 productContainer.addEventListener("click", (e) => {
-    if (e.target.closest(".cardbtn1")) {
+    if (e.target.closest(".addcart")) {
         const card = e.target.closest(".card");
         const productId = card.dataset.id;
         addToCart(productId);
     }
 });
 
+
+
+const cartContent = document.querySelector(".cart-content");
+
 function addToCart(productId) {
     const product = products.find(p => p.id == productId);
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push(product);
+    for (let item of cart){
+        if (Number(productId) === Number(item.id)){
+            alert("this item is already in the cart")
+            return;
+        }
+    }
+    cart.push({...product,quantity:1});
     localStorage.setItem("cart", JSON.stringify(cart));
+
+    renderCart(); // rebuild the visible cart from localStorage
 }
 
 
+cartContent.addEventListener("click", (e) => {
+    if (e.target.closest(".cart-remove")) {
+        const cartBox = e.target.closest(".cart-box");
+        const productId = cartBox.dataset.id;
+        removeFromCart(productId);
+    }
+});
+function removeFromCart(productId) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart = cart.filter(product => product.id != productId);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+}
 
 
+function renderCart() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cartContent.innerHTML = "";
+
+    cart.forEach(product => {
+        const cartBox = document.createElement("div");
+        cartBox.classList.add("cart-box");
+        cartBox.dataset.id = product.id;
+        cartBox.innerHTML = `
+         <img src="${product.image}" alt="${product.name}">
+            <div class="cart-detail">
+              <h2 class="cart-product-title">${product.name}</h2>
+              <span class="cart-price">${product.price} JOD</span>
+              <div class="cart-quantity">
+                <button class="decrement">-</button>
+                <span class="number">${product.quantity}</span>
+                <button class="increment">+</button>  
+              </div>
+            </div>
+            <i class="bi bi-trash cart-remove"></i>`;
+        cartContent.appendChild(cartBox);
+
+        // attach the quantity click listener to THIS specific cartBox
+        cartBox.querySelector(".cart-quantity").addEventListener("click", event => {
+            const numberElement = cartBox.querySelector(".number");
+            let quant = Number(numberElement.textContent);
+
+            if (event.target.classList.contains("decrement") && quant > 1) {
+                quant--;
+            } else if (event.target.classList.contains("increment")) {
+                quant++;
+            }
+
+            numberElement.textContent = quant;
+
+            // save the new quantity back to localStorage
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const item = cart.find(p => p.id == product.id);
+            if (item) {
+                item.quantity = quant;
+                localStorage.setItem("cart", JSON.stringify(cart));
+            }
+            updateTotalPrice();
+        });
+    });
+
+    updateTotalPrice();
+}
+
+const updateTotalPrice = () => {
+    const totalPriceElement = document.querySelector(".total-price");
+    const cartElement = JSON.parse(localStorage.getItem("cart")) || [];
+    let total = 0;
+    cartElement.forEach(element => {
+        total += Number(element.price)*Number(element.quantity);
+    });
+    totalPriceElement.textContent = `${total} JOD`;
+};
+
+// run this once when the page loads, so the cart shows saved items even after reload
+renderCart();
+
+function clearCart() {
+    localStorage.setItem("cart", JSON.stringify([]));
+    renderCart();
+}
 
 
-        
+// on the products page — same pattern as the details button we did earlier
+productContainer.addEventListener("click", (e) => {
+    if (e.target.closest(".detailsbtn")) {
+        const card = e.target.closest(".card");
+        const productId = card.dataset.id;
+        window.location.href = "prodDetails.html?id=" + productId;
+    }
+});
+
+
+function gotoCart() {
+        window.location.href = "cartPage.html";
+};
+
+// cartBox.querySelector(".cart-quantity").addEventListener("click", event =>{
+//     const numberElement = cartBox.querySelector(".number");
+//     const decrementButton = cartBox.querySelector(".decrement");
+//     let quant = Number(numberElement.textContent);
+//     if (event.target.classList.contains("decrement") && quant > 1) {
+//         quant--;
+//         if(quant === 1){
+//             decrementButton.style.color="#6f5555"
+//         }
+//     }
+//     else if (event.target.classList.contains("increment")) {
+//         quant++;
+//         decrementButton.style.color="#402b2b"
+
+//     }
+
+//     numberElement.textContent =quant;
+// });
