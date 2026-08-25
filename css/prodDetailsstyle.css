@@ -4,7 +4,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: #f2f2f2;
+  background: #f6eaea;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -129,3 +129,5 @@ label {
     min-height: 250px;
   }
 }
+
+

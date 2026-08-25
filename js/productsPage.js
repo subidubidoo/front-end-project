@@ -17,7 +17,7 @@ const products =[
     name:"Slit dress",
     price:106,
     category:"Dresses",
-    image:"images\\dresses\\download (23).jpg",
+    image:"images\\dresses\\dress3.jpg",
     description:"Summer dress for women with a slit and flower designs"},
 
     {id:4,

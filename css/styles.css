@@ -70,6 +70,7 @@
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 40px;
+    background-color: #fffafa;
 
 }
 
@@ -149,4 +150,10 @@
     font-family: 'Montserrat';
     color: #fffafa;
     height: 48vh;
+}
+
+#searchInput{
+    border: 1px solid #d18489;
+            border-radius: 25px;
+            padding: 0 15px;
 }
