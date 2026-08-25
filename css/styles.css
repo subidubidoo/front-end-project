@@ -3,7 +3,7 @@
 .brand {
     font-family: 'Playfair Display', cursive;
     font-size: 1.5rem;
-    color: #165823;
+    color: #563838;
     font-weight: bold;
     margin-left: 2rem;
     text-decoration: none;
@@ -26,26 +26,26 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
     padding: 8px 16px;
-    border: 1px solid #165823;
+    border: 1px solid #563838;
     background: transparent;
-    color: #165823;
+    color: #563838;
     border-radius: 999px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .cat-btn:hover {
-    background: #165823;
+    background: #563838;
     color: #fff;
 }
 
 .cat-btn.active {
-    background: #165823;
+    background: #563838;
     color: #fff;
 }
 
 .card {
-    border: 1px solid #FF788D;
+    border: 1px solid #d47f86;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 5px #ffdad0;
@@ -55,12 +55,12 @@
 
 }
 
-.custom-img {
+/* .custom-img {
     height: 400px;
 
 
 
-}
+} */
 
 
 #productContainer {
@@ -94,12 +94,24 @@
     bottom: 10px;
 }
 
+.card-price{
+    color: #be3547;
+    margin-bottom: 7vh;
+    font-weight: semi-bold;
+}
+
+.card-title{
+    font-family: 'Playfair Display';
+    color: #4a3434;
+}
+
+
 
 
 #searchicon, #carticon{
     justify-content: end; 
      font-size: 1.5rem;
-     color: #165823;
+     color: #563838;
      cursor: pointer;
 }
 
@@ -118,7 +130,7 @@
     right: -3px;
     width: 12px;
     height: 12px;
-    background: #FF788D;
+    background: #d47f86;
     border-radius: 50%;
     font-size: 12px;
     color: white;
@@ -128,9 +140,13 @@
     visibility: hidden;
 }
 
+.link{
+    color: #fffafa;
+}
+
 .foot {
-    background-color: #ffdada;
+    background-color: #563838;
     font-family: 'Montserrat';
-    color: #165823;
+    color: #fffafa;
     height: 48vh;
 }

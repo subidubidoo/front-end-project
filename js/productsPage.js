@@ -53,7 +53,7 @@ const products =[
     price:15,
     category:"Jewelry",
     image:"images\\jewelery\\Bangles.jpg",
-    description:"pretty bangle set for women"},
+    description:"pretty and colorful indian inspired bangle set for women"},
 
     {id:9,
     name:"Green trendy pants",
@@ -99,17 +99,17 @@ const products =[
         productCard.style.width = "18rem";
         productCard.dataset.id = product.id;
         productCard.innerHTML = `
-               <img src="${product.image}" class="card-img-top custom-img" style="height: 400px; object-fit:cover;" alt="${product.name}">
-            <div class="card-body h-100">
+               <img src="${product.image}" class="card-img-top custom-img" style="height: 300px; object-fit:cover;" alt="${product.name}">
+            <div class="card-body ">
                 <h5 class="card-title">${product.name}</h5>
                 <p class="card-text">${product.description}</p>
-                <p class="card-price">$${product.price.toFixed(2)}</p>
+                <p class="card-price">${product.price.toFixed(2)} JOD</p>
                 <div class="card-btns">
-                <button type="button" class="btn btn-sm cardbtn1" style="background-color: #165823; font-family:'Montserrat','Playfair Display';color: #ffdada;font-weight:470;font-size: 0.8rem;">
+                <button type="button" class="btn btn-sm cardbtn" style="background-color: #563838; font-family:'Montserrat','Playfair Display';color: #fffafa;font-weight:470;font-size: 0.8rem;position:absolute; bottom:15px; right:10px;">
                 <i class="bi bi-bag-heart"></i>
                   Add to Cart</button>
-                <button type="button" class="btn btn-sm cardbtn2" style="background-color: #165823; font-family:'Montserrat','Playfair Display';color: #ffdada;font-weight:470;font-size: 0.8rem;">
-                <i class="bi bi-balloon-heart"></i> View Details</button>
+                <button type="button" class="btn btn-sm cardbtn" style="background-color: #563838; font-family:'Montserrat','Playfair Display';color: #fffafa;font-weight:470;font-size: 0.8rem;position:absolute; bottom:15px; right:120px;">
+                <i class="bi bi-balloon-heart"></i> Details</button>
                 </div>
                 </div>
 
