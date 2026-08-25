@@ -11,54 +11,6 @@
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <style>
-
-        .nav-search {
-            width: 220px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: #ffffff;
-            border: 1px solid #d18489;
-            border-radius: 25px;
-            padding: 0 15px;
-        }
-
-        .nav-search i {
-            color: #d18489;
-            font-size: 15px;
-        }
-
-        .nav-search input {
-            width: 100%;
-            border: none;
-            outline: none;
-            background: transparent;
-            color: #5a3838;
-            font-size: 14px;
-        }
-
-        .nav-search input::placeholder {
-            color: #9b7b7b;
-        }
-
-        .dark-mode .nav-search {
-            background-color: #4b3030;
-            border-color: #d18489;
-        }
-
-        .dark-mode .nav-search input {
-            color: white;
-        }
-
-        .dark-mode .nav-search input::placeholder {
-            color: #e8cccc;
-        }
-
-    </style>
-
 </head>
 
 <body>
@@ -76,32 +28,11 @@
 
         <a href="./productsPage.html">Products</a>
 
-        <a href="./wishlist.html">
-            <i class="fa-regular fa-heart"></i>
-            Wishlist
-        </a>
-
-        <div class="nav-search">
-
-            <i class="fa-solid fa-magnifying-glass"></i>
-
-            <input
-                type="text"
-                id="navSearch"
-                placeholder="Search products..."
-            >
-
-        </div>
-
         <a href="./login.html">Sign In</a>
 
         <a href="./register.html" class="signup">
             Sign Up
         </a>
-
-        <button id="themeToggle" class="theme-toggle">
-            <i class="fa-solid fa-moon"></i>
-        </button>
 
     </div>
 
@@ -110,9 +41,15 @@
 
 <section class="hero">
 
+    <img src="images/homeinage.jpg"
+         class="hero-image"
+         alt="Fashion Collection">
+
+    <div class="hero-overlay"></div>
+
     <div class="hero-content">
 
-        <p class="small-title">
+        <p class="hero-small-title">
             NEW COLLECTION
         </p>
 
@@ -121,8 +58,9 @@
             Defines You
         </h1>
 
-        <p class="hero-text">
-            Discover timeless fashion designed to make every moment feel special.
+        <p class="hero-description">
+            DISCOVER TIMELESS FASHION DESIGNED TO MAKE EVERY<br>
+            MOMENT FEEL SPECIAL.
         </p>
 
         <a href="./productsPage.html" class="shop-btn">
@@ -153,7 +91,8 @@
 
         <div class="product-card">
 
-            <img src="images/dresses/dress3.jpg" alt="Elegant Dress">
+            <img src="images/dresses/dress3.jpg"
+                 alt="Elegant Dress">
 
             <div class="product-info">
 
@@ -174,7 +113,8 @@
 
         <div class="product-card">
 
-            <img src="images/dresses/download (21).jpg" alt="Classic Dress">
+            <img src="images/dresses/download (21).jpg"
+                 alt="Classic Dress">
 
             <div class="product-info">
 
@@ -195,7 +135,8 @@
 
         <div class="product-card">
 
-            <img src="images/dresses/download (22).jpg" alt="Feminine Dress">
+            <img src="images/dresses/download (22).jpg"
+                 alt="Feminine Dress">
 
             <div class="product-info">
 
@@ -216,7 +157,8 @@
 
         <div class="product-card">
 
-            <img src="images/jewelery/download (26).jpg" alt="Delicate Bracelet">
+            <img src="images/jewelery/download (26).jpg"
+                 alt="Delicate Bracelet">
 
             <div class="product-info">
 
@@ -353,7 +295,24 @@
 </section>
 
 
-<section class="collection">
+<section class="collection"
+         style="
+         background-image:
+         linear-gradient(
+             90deg,
+             rgba(248, 245, 240, 0.95) 0%,
+             rgba(248, 245, 240, 0.88) 23%,
+             rgba(248, 245, 240, 0.68) 38%,
+             rgba(248, 245, 240, 0.35) 55%,
+             rgba(248, 245, 240, 0.08) 75%,
+             rgba(248, 245, 240, 0) 100%
+         ),
+         url('images/collection-bg.jpg');
+
+         background-size: cover;
+         background-position: center right;
+         background-repeat: no-repeat;
+         ">
 
     <div class="collection-text">
 
@@ -388,8 +347,13 @@
         <i class="fa-solid fa-truck"></i>
 
         <div>
+
             <h3>Fast Delivery</h3>
-            <p>Quick delivery to your doorstep.</p>
+
+            <p>
+                Quick delivery to your doorstep.
+            </p>
+
         </div>
 
     </div>
@@ -400,8 +364,13 @@
         <i class="fa-regular fa-heart"></i>
 
         <div>
+
             <h3>Premium Quality</h3>
-            <p>Carefully selected fashion pieces.</p>
+
+            <p>
+                Carefully selected fashion pieces.
+            </p>
+
         </div>
 
     </div>
@@ -412,8 +381,13 @@
         <i class="fa-solid fa-lock"></i>
 
         <div>
+
             <h3>Secure Shopping</h3>
-            <p>Your shopping experience is protected.</p>
+
+            <p>
+                Your shopping experience is protected.
+            </p>
+
         </div>
 
     </div>
@@ -429,9 +403,17 @@
 
             <h3>SHOP</h3>
 
-            <a href="./productsPage.html">New Arrivals</a>
-            <a href="./productsPage.html">Best Sellers</a>
-            <a href="./productsPage.html">Sale</a>
+            <a href="./productsPage.html">
+                New Arrivals
+            </a>
+
+            <a href="./productsPage.html">
+                Best Sellers
+            </a>
+
+            <a href="./productsPage.html">
+                Sale
+            </a>
 
         </div>
 
@@ -440,16 +422,26 @@
 
             <h3>HELP</h3>
 
-            <a href="#">Shipping</a>
-            <a href="#">Returns</a>
-            <a href="#">Size Guide</a>
+            <a href="#">
+                Shipping
+            </a>
+
+            <a href="#">
+                Returns
+            </a>
+
+            <a href="#">
+                Size Guide
+            </a>
 
         </div>
 
 
         <div class="footer-column why-shop">
 
-            <h3>WHY SHOP WITH US</h3>
+            <h3>
+                WHY SHOP WITH US
+            </h3>
 
             <p>
                 <i class="fa-solid fa-truck"></i>
@@ -480,8 +472,11 @@
         <div class="payment-icons">
 
             <i class="fa-brands fa-cc-visa"></i>
+
             <i class="fa-brands fa-cc-paypal"></i>
+
             <i class="fa-brands fa-cc-mastercard"></i>
+
             <i class="fa-brands fa-google-pay"></i>
 
         </div>
@@ -489,69 +484,6 @@
     </div>
 
 </footer>
-
-
-<script>
-
-    const themeToggle =
-        document.getElementById("themeToggle");
-
-    const savedTheme =
-        localStorage.getItem("theme");
-
-    if (savedTheme === "dark") {
-
-        document.body.classList.add("dark-mode");
-
-        themeToggle.innerHTML =
-            '<i class="fa-solid fa-sun"></i>';
-
-    }
-
-    themeToggle.addEventListener("click", function () {
-
-        document.body.classList.toggle("dark-mode");
-
-        if (document.body.classList.contains("dark-mode")) {
-
-            localStorage.setItem("theme", "dark");
-
-            themeToggle.innerHTML =
-                '<i class="fa-solid fa-sun"></i>';
-
-        } else {
-
-            localStorage.setItem("theme", "light");
-
-            themeToggle.innerHTML =
-                '<i class="fa-solid fa-moon"></i>';
-
-        }
-
-    });
-
-
-    const navSearch = document.getElementById("navSearch");
-
-    navSearch.addEventListener("keydown", function(event) {
-
-        if (event.key === "Enter") {
-
-            const searchValue = navSearch.value.trim();
-
-            if (searchValue !== "") {
-
-                localStorage.setItem("productSearch", searchValue);
-
-                window.location.href = "./productsPage.html";
-
-            }
-
-        }
-
-    });
-
-</script>
 
 </body>
 
