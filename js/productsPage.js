@@ -85,6 +85,7 @@ const products =[
  ];
 
 
+
  function displayProducts(productsToDisplay) {
     const productContainer = document.getElementById("productContainer");
     productContainer.innerHTML = ""; // Clear previous products
@@ -102,10 +103,10 @@ const products =[
                 <p class="card-text">${product.description}</p>
                 <p class="card-price">${product.price.toFixed(2)} JOD</p>
                 <div class="card-btns">
-                <button type="button" class="btn btn-sm addcart" style="background-color: #563838; font-family:'Montserrat','Playfair Display';color: #fffafa;font-weight:470;font-size: 0.8rem;position:absolute; bottom:15px; right:10px;">
-                <i class="bi bi-bag-heart"></i>
-                  Add to Cart</button>
-                <button type="button" class="btn btn-sm detailsbtn" style="background-color: #563838; font-family:'Montserrat','Playfair Display';color: #fffafa;font-weight:470;font-size: 0.8rem;position:absolute; bottom:15px; right:120px;">
+                <button type="button" class="btn btn-sm addcart" style="background-color: #563838; font-family:'Montserrat','Playfair Display';color: #fffafa;font-weight:470;font-size: 0.8rem;position:absolute; bottom:16px; right:30px;width:35px;height:35px;display:flex;justify-content:center;align-items:center;">
+                <i class="bi bi-bag-heart" style="font-size:1.5rem;"></i>
+                </button>
+                <button type="button" class="btn btn-sm detailsbtn" style="background-color: #563838; font-family:'Montserrat','Playfair Display';color: #fffafa;font-weight:470;font-size: 0.8rem;position:absolute; bottom:16px; left:20px;">
                 <i class="bi bi-balloon-heart"></i> Details</button>
                 </div>
                 </div>
@@ -182,20 +183,76 @@ productContainer.addEventListener("click", (e) => {
 
 const cartContent = document.querySelector(".cart-content");
 
+// function addToCart(productId) {
+//     const product = products.find(p => p.id == productId);
+//     let cart = JSON.parse(localStorage.getItem("cart")) || [];
+//     for (let item of cart){
+//         if (Number(productId) === Number(item.id)){
+//             Swal.fire({
+//             icon: "error",
+//             title: "Oops...",
+//             text: "Oop Item is already in the cart",
+// });
+//             return;
+//         }
+//     }
+//     cart.push({...product,quantity:1});
+//     localStorage.setItem("cart", JSON.stringify(cart));
+//     Swal.fire({
+//     title: "Nice!",
+//     text: "Added to cart successfully",
+//     icon: "success"
+//     });
+
+//     renderCart(); // rebuild the visible cart from localStorage
+// }
+
+
+
+
+
 function addToCart(productId) {
     const product = products.find(p => p.id == productId);
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (!currentUser) {
+        Swal.fire({
+            icon: "warning",
+            title: "Please sign in first",
+            text: "You need to be logged in to add items to your cart."
+        });
+        return;
+    }
+
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    for (let item of cart){
-        if (Number(productId) === Number(item.id)){
-            alert("this item is already in the cart")
+
+    for (let item of cart) {
+        if (Number(productId) === Number(item.id) && item.userId === currentUser.id) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Oop Item is already in the cart",
+            });
             return;
         }
     }
-    cart.push({...product,quantity:1});
+
+    cart.push({ ...product, quantity: 1, userId: currentUser.id });
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    renderCart(); // rebuild the visible cart from localStorage
+    Swal.fire({
+        title: "Nice!",
+        text: "Added to cart successfully",
+        icon: "success"
+    });
+
+    renderCart();
 }
+
+
+
+
+
 
 
 cartContent.addEventListener("click", (e) => {
@@ -213,13 +270,82 @@ function removeFromCart(productId) {
 }
 
 
-function renderCart() {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cartContent.innerHTML = "";
+// function renderCart() {
+//     const cart = JSON.parse(localStorage.getItem("cart")) || [];
+//     cartContent.innerHTML = "";
 
-    cart.forEach(product => {
+//     cart.forEach(product => {
+//         const cartBox = document.createElement("div");
+//         cartBox.classList.add("cart-box");
+//         cartBox.dataset.id = product.id;
+//         cartBox.innerHTML = `
+//          <img src="${product.image}" alt="${product.name}">
+//             <div class="cart-detail">
+//               <h2 class="cart-product-title">${product.name}</h2>
+//               <span class="cart-price">${product.price} JOD</span>
+//               <div class="cart-quantity">
+//                 <button class="decrement">-</button>
+//                 <span class="number">${product.quantity}</span>
+//                 <button class="increment">+</button>  
+//               </div>
+//             </div>
+//             <i class="bi bi-trash cart-remove"></i>`;
+//         cartContent.appendChild(cartBox);
+
+//         // attach the quantity click listener to THIS specific cartBox
+//         cartBox.querySelector(".cart-quantity").addEventListener("click", event => {
+//             const numberElement = cartBox.querySelector(".number");
+//             let quant = Number(numberElement.textContent);
+
+//             if (event.target.classList.contains("decrement") && quant > 1) {
+//                 quant--;
+//             } else if (event.target.classList.contains("increment")) {
+//                 quant++;
+//             }
+
+//             numberElement.textContent = quant;
+
+//             // save the new quantity back to localStorage
+//             let cart = JSON.parse(localStorage.getItem("cart")) || [];
+//             const item = cart.find(p => p.id == product.id);
+//             if (item) {
+//                 item.quantity = quant;
+//                 localStorage.setItem("cart", JSON.stringify(cart));
+//             }
+//             updateTotalPrice();
+//         });
+//     });
+
+//     updateTotalPrice();
+// }
+
+// const updateTotalPrice = () => {
+//     const totalPriceElement = document.querySelector(".total-price");
+//     const cartElement = JSON.parse(localStorage.getItem("cart")) || [];
+//     let total = 0;
+//     cartElement.forEach(element => {
+//         total += Number(element.price)*Number(element.quantity);
+//     });
+//     totalPriceElement.textContent = `${total} JOD`;
+// };
+
+
+const totalPriceElement = document.querySelector(".total-price")
+
+function getCurrentUserCart() {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    const allItems = JSON.parse(localStorage.getItem("cart")) || [];
+    if (!currentUser) return [];
+    return allItems.filter(item => item.userId == currentUser.id);
+}
+
+function renderCart() {
+    const cart = getCurrentUserCart();
+    cartContent.innerHTML = "";                                       // ✅ correct container
+
+    cart.forEach(product => {                                         // ✅ dropped "index" — using id-based matching now
         const cartBox = document.createElement("div");
-        cartBox.classList.add("cart-box");
+        cartBox.classList.add("cart-box");                            // ✅ matches your real CSS
         cartBox.dataset.id = product.id;
         cartBox.innerHTML = `
          <img src="${product.image}" alt="${product.name}">
@@ -233,9 +359,9 @@ function renderCart() {
               </div>
             </div>
             <i class="bi bi-trash cart-remove"></i>`;
-        cartContent.appendChild(cartBox);
+        cartContent.appendChild(cartBox);                             // ✅ correct container
 
-        // attach the quantity click listener to THIS specific cartBox
+        // ✅ this whole block was MISSING in your active renderCart — added back in
         cartBox.querySelector(".cart-quantity").addEventListener("click", event => {
             const numberElement = cartBox.querySelector(".number");
             let quant = Number(numberElement.textContent);
@@ -248,12 +374,12 @@ function renderCart() {
 
             numberElement.textContent = quant;
 
-            // save the new quantity back to localStorage
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            const item = cart.find(p => p.id == product.id);
+            let allItems = JSON.parse(localStorage.getItem("cart")) || [];
+            const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+            const item = allItems.find(p => p.id == product.id && p.userId == currentUser.id);
             if (item) {
                 item.quantity = quant;
-                localStorage.setItem("cart", JSON.stringify(cart));
+                localStorage.setItem("cart", JSON.stringify(allItems));
             }
             updateTotalPrice();
         });
@@ -262,15 +388,15 @@ function renderCart() {
     updateTotalPrice();
 }
 
-const updateTotalPrice = () => {
-    const totalPriceElement = document.querySelector(".total-price");
-    const cartElement = JSON.parse(localStorage.getItem("cart")) || [];
+function updateTotalPrice() {
+    const cart = getCurrentUserCart();   // ← also changed here
     let total = 0;
-    cartElement.forEach(element => {
-        total += Number(element.price)*Number(element.quantity);
+    cart.forEach(product => {
+        total += Number(product.price) * product.quantity;
     });
-    totalPriceElement.textContent = `${total} JOD`;
-};
+    totalPriceElement.textContent = total.toFixed(2);
+}
+
 
 // run this once when the page loads, so the cart shows saved items even after reload
 renderCart();
@@ -313,3 +439,19 @@ function gotoCart() {
 
 //     numberElement.textContent =quant;
 // });
+
+
+function logout() {
+    localStorage.removeItem("currentUser");
+    localStorage.removeItem("isLoggedIn");
+
+    Swal.fire({
+        icon: "success",
+        title: "Logged out successfully",
+        showConfirmButton: false,
+        timer: 1200
+    }).then(() => {
+        window.location.href = "login.html";
+    });
+}
+

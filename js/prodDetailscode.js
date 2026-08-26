@@ -20,10 +20,7 @@ document.querySelectorAll('.size-option').forEach(function(el) {
   });
 });
 
-// Add to cart
-document.getElementById('addToCartBtn').addEventListener('click', function() {
 
-});
 
 document.querySelector("#closing").addEventListener("click", () => {
     window.location.href = "productsPage.html";
@@ -46,6 +43,8 @@ if (product) {
 }
 
 document.getElementById("addToCartBtn").addEventListener("click", () => {
+
     const id = document.querySelector(".product-box").dataset.id;
     addToCart(id); // reuse the same addToCart function from your products page
+    
 });

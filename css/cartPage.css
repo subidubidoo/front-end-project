@@ -84,7 +84,13 @@ body {
 
 .cart-footer h2 {
     color: #563838;
-    font-size: 20px;
+    font-size: 18px;
+}
+
+.tax{
+    color: #563838;
+    font-size: 10px;
+    
 }
 
 #clearCartBtn {
@@ -146,7 +152,6 @@ body {
 
 .navbar {
     width: 100%;
-    height: 85px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -157,13 +162,13 @@ body {
     left: 0;
     z-index: 1000;
     border-bottom: 1px solid #f0dada;
-    box-shadow: 0 2px 12px rgba(100, 60, 60, 0.05);
+    box-shadow: 0 2px 12px rgba(99, 49, 49, 0.05);
 }
 
 .logo {
     text-decoration: none;
     color: #463232;
-    font-size: 22px;
+    font-size: 10px;
     font-weight: bold;
     letter-spacing: 5px;
 }
@@ -205,6 +210,40 @@ body {
 }
 
 .nav-links .signup:hover {
-    background-color: #b86f76;
+    background-color: #cd8589;
     color: white;
 }
+.cart-quantity{
+    margin-top:10px ;
+}
+.button-container{
+    display:flex;    
+    justify-content: center;
+    align-items: center;
+    
+    padding: 20px;
+}
+.btn{
+    border: none;
+    background-color: #cd8589;
+    color: white;
+    width: 200px;
+    padding: 10px;
+    border-radius:6px;
+    font-size: 18px;
+}
+
+.btn:hover{
+    background-color: #c15d65;
+}
+
+.brand {
+    font-family: 'Playfair Display', cursive;
+    font-size: 1.5rem;
+    color: #563838;
+    font-weight: bold;
+    margin-left: 2rem;
+    text-decoration: none;
+
+}
+

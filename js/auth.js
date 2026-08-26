@@ -1,4 +1,4 @@
-alert("JavaScript connected");
+
 
 const nameRegex = /^[A-Za-z\s]{2,30}$/;
 
@@ -165,10 +165,19 @@ if (registerForm) {
             JSON.stringify(users)
         );
 
-        alert("Account created successfully!");
+        Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "account created successfully!",
+        showConfirmButton: false,
+        timer: 1500
+        });
 
+         setTimeout(() => {
         window.location.href = "login.html";
+    }, 1500);
     });
+  
 }
 
 const loginForm = document.getElementById("loginForm");
@@ -262,9 +271,17 @@ if (loginForm) {
             "true"
         );
 
-        alert("Signed in successfully!");
+        Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Signed in successfully!",
+        showConfirmButton: false,
+        timer: 1500
+        });
 
-        window.location.href = "home.html";
+       setTimeout(() => {
+    window.location.href = "home.html";
+    }, 1500);
     });
 }
 
