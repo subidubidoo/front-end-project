@@ -225,3 +225,17 @@ document.getElementById("pay-button").addEventListener("click", () => {
     localStorage.setItem("cart", JSON.stringify(allItems1));
     renderCart();
 });
+function accountLogin() {
+    const logoutButton = document.getElementById("logoutBtn");
+    const signinButton = document.getElementById("signinBtn");
+
+    if (localStorage.getItem("isLoggedIn") === null){
+        logoutButton.style.display ="none";
+    }
+    else {
+        signinButton.style.display ="none";
+
+    }
+    
+}
+accountLogin();

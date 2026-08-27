@@ -453,5 +453,21 @@ function logout() {
     }).then(() => {
         window.location.href = "login.html";
     });
+    accountLogin();
 }
 
+
+function accountLogin() {
+    const logoutButton = document.getElementById("logoutBtn");
+    const signinButton = document.getElementById("signinBtn");
+
+    if (localStorage.getItem("isLoggedIn") === null){
+        logoutButton.style.display ="none";
+    }
+    else {
+        signinButton.style.display ="none";
+
+    }
+    
+}
+accountLogin();

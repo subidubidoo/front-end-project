@@ -244,3 +244,6 @@ body {
 #pay-button{
     width:200px;
 }
+#signinBtn,#logoutBtn{
+    margin-right: 20px;
+}

@@ -41,3 +41,18 @@ function logout() {
     window.location.href = "home.html";
 
 }
+
+function accountLogin() {
+    const logoutButton = document.getElementById("logoutBtn");
+    const signinButton = document.getElementById("signinBtn");
+
+    if (localStorage.getItem("isLoggedIn") === null){
+        logoutButton.style.display ="none";
+    }
+    else {
+        signinButton.style.display ="none";
+
+    }
+    
+}
+accountLogin();

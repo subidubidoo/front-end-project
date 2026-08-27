@@ -734,3 +734,23 @@ body {
     color: #d36f82;
     transform: scale(1.15);
 }
+
+#searchicon, #carticon{
+    justify-content: end; 
+     font-size: 1.5rem;
+     color: #563838;
+     cursor: pointer;
+}
+
+#cart-icon-div{
+    position: relative;
+    display: flex;
+    font-size: 30px;
+    cursor: pointer;
+  
+
+    
+}
+#signinBtn,#logoutBtn{
+    margin-right: 20px;
+}
