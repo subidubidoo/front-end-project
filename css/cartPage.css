@@ -153,16 +153,11 @@ body {
 .navbar {
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 7%;
-    background-color: #fff8f8;
+    padding: 1%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    border-bottom: 1px solid #f0dada;
-    box-shadow: 0 2px 12px rgba(99, 49, 49, 0.05);
 }
 
 .logo {
@@ -220,17 +215,16 @@ body {
     display:flex;    
     justify-content: center;
     align-items: center;
-    
     padding: 20px;
 }
 .btn{
     border: none;
     background-color: #cd8589;
     color: white;
-    width: 200px;
+    width: 90px;
     padding: 10px;
     border-radius:6px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .btn:hover{
@@ -247,3 +241,6 @@ body {
 
 }
 
+#pay-button{
+    width:200px;
+}

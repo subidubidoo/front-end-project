@@ -166,8 +166,8 @@ document.getElementById("clearCartBtn").addEventListener("click", () => {
         text: "You won't be able to revert this!",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#86d077",
-        cancelButtonColor: "#d33",
+        confirmButtonColor: "#db5d5d",
+        cancelButtonColor: "rgb(160, 184, 231)",
         confirmButtonText: "Yes, Clear cart!"
         }).then((result) => {
         if (result.isConfirmed) Swal.fire({
@@ -194,3 +194,34 @@ function calculateTax() {
 }
 
 renderCart();
+
+
+function logout() {
+    localStorage.removeItem("currentUser");
+    localStorage.removeItem("isLoggedIn");
+
+    Swal.fire({
+        icon: "success",
+        title: "Logged out successfully",
+        showConfirmButton: false,
+        timer: 1200
+    }).then(() => {
+        window.location.href = "login.html";
+    });
+}
+
+
+document.getElementById("pay-button").addEventListener("click", () => {
+    const currentUser1 = JSON.parse(localStorage.getItem("currentUser"));
+    let allItems1 = JSON.parse(localStorage.getItem("cart")) || [];
+
+       Swal.fire({
+  title: "Good job!",
+  text: "You clicked the button!",
+  icon: "success"
+});
+
+    allItems1 = allItems1.filter(item => item.userId != currentUser1.id);  // ← only clear THIS user's items
+    localStorage.setItem("cart", JSON.stringify(allItems1));
+    renderCart();
+});
