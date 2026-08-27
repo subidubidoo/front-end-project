@@ -754,3 +754,34 @@ body {
 #signinBtn,#logoutBtn{
     margin-right: 20px;
 }
+
+.why-shop {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.why-shop p {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.hero {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+.navbar {
+    margin-bottom: 0 !important;
+}
+
+.hero-image {
+    display: block;
+}
